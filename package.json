@@ -1,0 +1,31 @@
+{
+  "name": "bigbrother",
+  "version": "1.0.0",
+  "description": "Person Information Gathering",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodejs index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosasdepuma/bigbrother.git"
+  },
+  "keywords": [
+    "big",
+    "brother",
+    "person",
+    "information",
+    "gathering",
+    "info",
+    "people"
+  ],
+  "author": "KikePuma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cosasdepuma/bigbrother/issues"
+  },
+  "homepage": "https://github.com/cosasdepuma/bigbrother#readme",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
