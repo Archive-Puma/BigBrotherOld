@@ -27,5 +27,5 @@ fileIO.readFile("./index.html", function(error, index){
         // Stop server response
         response.end();
     // Start server in port 8080
-    }).listen(8000);
+    }).listen(8080);
 });
