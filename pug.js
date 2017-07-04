@@ -42,9 +42,7 @@ server.get("/", function(request, response) {
 
 // Root Form Request
 server.post("/", function(request,response) {
-    console.log("Name: " + request.body.name);
-    console.log("Surname: " + request.body.surname);
-    console.log("Nickname: " + request.body.nickname);
+    console.log("Name: " + request.body.name + "\nSurname: " + request.body.surname + "\nNickname: " + request.body.nickname);
     response.send("Datos recibidos");
 });
 
