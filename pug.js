@@ -5,7 +5,7 @@ var express = require("express");
 var server = express();
 
 // Set view
-server.set("view engine","jade");
+server.set("view engine","pug");
 
 // Root Dir
 server.get("/", function(request, response) {
