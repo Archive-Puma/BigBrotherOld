@@ -1,0 +1,21 @@
+extends ./layout.pug
+block source_code
+
+    // Information about the target
+    div(class="w3-display-middle")
+        div(class="row")
+            div(class="col")
+                form(action="/", method="POST")
+                    // Text Boxs
+                    div(class="input-field")
+                        input(id="name", name="name", type="text")
+                        label(for="name") Name
+                    div(class="input-field")
+                        input(id="surname", name="surname", type="text")
+                        label(for="surname") Surnames
+                    div(class="input-field")
+                        input(id="nickname", name="nickname", type="text")
+                        label(for="nickname") Nickname    
+                    br
+                    button(class="btn waves-effect") Search
+                        i(class="material-icons right") search
