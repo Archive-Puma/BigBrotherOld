@@ -4,7 +4,7 @@
   "description": "Personal Information Gathering",
   "main": "pug.js",
   "scripts": {
-    "test": "nodejs pug.js"
+    "test": "nodejs index.js"
   },
   "repository": {
     "type": "git",
