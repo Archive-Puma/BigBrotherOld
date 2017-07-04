@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/cosasdepuma/bigbrother#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "pug": "^0.1.0"
   }
