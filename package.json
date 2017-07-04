@@ -4,7 +4,9 @@
   "description": "Person Information Gathering",
   "main": "index.js",
   "scripts": {
-    "test": "nodejs index.js"
+    "express": "nodejs express.js",
+    "jade": "nodejs jade.js",
+    "node": "nodejs index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,8 @@
   },
   "homepage": "https://github.com/cosasdepuma/bigbrother#readme",
   "dependencies": {
-    "twit": "^2.2.9"
+    "express": "^4.15.3",
+    "jade": "^1.11.0",
+    //"twit": "^2.2.9"
   }
 }
