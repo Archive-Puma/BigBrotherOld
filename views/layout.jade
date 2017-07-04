@@ -1,0 +1,27 @@
+doctype html
+html(language="es")
+    head
+        title OhanaMeans: Big Brother
+
+        // Important information
+        meta(name="author", content="KikePuma")
+        meta(name="description", content="A NodeJS + Express and Pug Website")
+        // Website encoding
+        meta(charset="UTF-8")
+        // Let browser know website is optimized for mobile
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+
+        // Import Google Icon Font
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+        // CSS Stylesheets
+        link(href="https://www.w3schools.com/w3css/4/w3.css", rel="stylesheet")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css", rel="stylesheet")
+    
+    body
+        // Import jQuery before materialize.js
+        script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+        // Compiled and minified JavaScript
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js")
+        
+        // Webpage content
+        block source_code
