@@ -2,7 +2,9 @@
 var mongo = require("mongoose");
 
 // Connect to MongoDB
-mongo.connect("mongodb://localhost/bigbrother", { useMongoClient: true });
+mongo.connect("mongodb://localhost/bigbrother", { useMongoClient: true }, function() {
+    mongo.connection.db.dropDatabase();
+});
 
 // Create MongoDB Schemas
 var user_schema = new mongo.Schema({
@@ -15,7 +17,8 @@ var user_schema = new mongo.Schema({
     location:String,
     url:String,
     following:Number,
-    followers:Number
+    followers:Number,
+    profile_picture: String
 });
 
 // Create MongoDB Models

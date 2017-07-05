@@ -8,12 +8,15 @@ var bodyparser = require("body-parser");
 // Import Express library
 var express = require("express");
 
+// Import Express-Session library
+var session = require("express-session");
+
 // Import own libraries
 var Twitter = require("./libs/socials/twitter").Twitter;
 var twitter_user = require("./libs/models/twitter/user").twitter_user;
 
 /* ------------------------------------ */
-/* -------------- OPTIONS ------------- */
+/* ------------ MIDDLEWARES ----------- */
 /* ------------------------------------ */
 
 // Create server
@@ -27,27 +30,32 @@ server.use(bodyparser.json());
 // Argument Parser: Text/HTML
 server.use(bodyparser.urlencoded({extended:true }));
 
-/* ------------------------------------ */
-/* ------------ MIDDLEWARES ----------- */
-/* ------------------------------------ */
-
 // Set link to static files
 server.use("/assets/public_files", express.static('public'));
+
+// Set session arguments
+server.use(session({
+    // Secret String needs to be unique for all our NodeJS proyects
+    secret: "0xDEAD_B1gBr0th3R_Session",
+    resave: false, saveUninitialized: false
+}));
 
 /* ------------------------------------ */
 /* ------------- REQUESTS ------------- */
 /* ------------------------------------ */
 
-// Root Dir
+// Index
 server.get("/", function(request, response) {
+    console.log(request.session.search)
     // Read Index Jade view
     response.render("index");
 });
 
-// Root Form Request
-server.post("/", function(request,response) {
-    console.log("Name: " + request.body.name + "\nSurname: " + request.body.surname + "\nNickname: " + request.body.nickname);
-    response.send("Datos recibidos");
+// Gathering information
+server.post("/searching", function(request, response) {
+    twitter_search(request.session.id, request.body.nickname);
+    request.session.search = request.session.id; //request.session.id;
+    response.render("searching");
 });
 
 // Root Dir
@@ -58,17 +66,22 @@ server.get("/twitter", function(request, response) {
     });
 });
 
-// Twitter Information
-server.post("/twitter", function(request, response) {
 
-    // Search Twitter users
+
+/* ------------------------------------ */
+/* ------------- FUNCTIONS ------------ */
+/* ------------------------------------ */
+
+// Search Twitter users
+function twitter_search(session_id, name) {
     Twitter.get("users/search", {
-        "q": request.body.name,
+        "q": name,
         count: 5
     }, function(error,data,res) {
         for(var profile in data) {
             // Fill user information
             var user = new twitter_user({
+                session: session_id,
                 userID:data[profile]['id_str'],
                 user:data[profile]['screen_name'],
                 name:data[profile]['name'],
@@ -78,18 +91,18 @@ server.post("/twitter", function(request, response) {
                 protected:data[profile]['protected'],
                 following:data[profile]['friends_count'],
                 followers:data[profile]['followers_count'],
-                lang:data[profile]['lang']
+                lang:data[profile]['lang'],
+                profile_picture:data[profile]['profile_image_url_https']
             });
             // Save user info in database
-            user.save(function(){
+            user.save().then(function(doc){
                 return;
             });
         }
         return;
     });
-
-    response.send("Información recibida!");
-});
+    return;
+}
 
 /* ------------------------------------ */
 /* -------------- THREAD -------------- */
