@@ -8,6 +8,7 @@ mongo.connect("mongodb://localhost/bigbrother", { useMongoClient: true }, functi
 
 // Create MongoDB Schemas
 var user_schema = new mongo.Schema({
+    session:String,
     userID:String,
     protected:Boolean,
     user:String,
