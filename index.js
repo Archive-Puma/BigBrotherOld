@@ -12,6 +12,8 @@ var express = require("express");
 var session = require("express-session");
 
 // Import own libraries
+var router = require("./libs/routes");
+var uac = require("./libs/uac");
 var Twitter = require("./libs/socials/twitter").Twitter;
 var twitter_user = require("./libs/models/twitter/user").twitter_user;
 
@@ -46,7 +48,6 @@ server.use(session({
 
 // Index
 server.get("/", function(request, response) {
-    console.log(request.session.search)
     // Read Index Jade view
     response.render("index");
 });
@@ -54,7 +55,7 @@ server.get("/", function(request, response) {
 // Gathering information
 server.post("/searching", function(request, response) {
     twitter_search(request.session.id, request.body.nickname);
-    request.session.search = request.session.id; //request.session.id;
+    request.session.user = request.session.id; //request.session.id;
     response.render("searching");
 });
 
@@ -65,8 +66,6 @@ server.get("/twitter", function(request, response) {
         response.send(document);
     });
 });
-
-
 
 /* ------------------------------------ */
 /* ------------- FUNCTIONS ------------ */
@@ -107,6 +106,12 @@ function twitter_search(session_id, name) {
 /* ------------------------------------ */
 /* -------------- THREAD -------------- */
 /* ------------------------------------ */
+
+// Set the UAC
+server.use("/information",uac);
+
+// Start the Router
+server.use("/information",router);
 
 // Start server in port 8080
 server.listen(8080);
