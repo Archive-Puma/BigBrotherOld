@@ -9,7 +9,7 @@ module.exports = function(request, response, next) {
                 console.log(error);
                 response.redirect("/");
             } else {
-                console.log(document);
+                response.locals = { twitter_information: document };
                 next();
             }
         });
