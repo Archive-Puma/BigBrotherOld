@@ -11,6 +11,7 @@ var user_schema = new mongo.Schema({
     session:String,
     userID:String,
     protected:Boolean,
+    protected_icon:String,
     user:String,
     name:String,
     description:String,

@@ -78,6 +78,10 @@ function twitter_search(session_id, name) {
         count: 5
     }, function(error,data,res) {
         for(var profile in data) {
+            var lock = "lock_open";
+            if(data[profile]['protected'])
+                lock = "lock";
+
             // Fill user information
             var user = new twitter_user({
                 session: session_id,
@@ -88,6 +92,7 @@ function twitter_search(session_id, name) {
                 description:data[profile]['description'],
                 url:data[profile]['url'],
                 protected:data[profile]['protected'],
+                protected_icon:lock,
                 following:data[profile]['friends_count'],
                 followers:data[profile]['followers_count'],
                 lang:data[profile]['lang'],

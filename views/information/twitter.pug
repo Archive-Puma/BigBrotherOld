@@ -1,7 +1,38 @@
-extends ../layout.pug
+extends ./navbar.pug
 
-block styles
-
-block source_code
+block source
     div(class="w3-display-middle")
-        h4 Has buscado información sobre #{twitter_information[0]['name']}
+        div(class="row")
+            <div class="card-panel grey lighten-5 z-depth-1">
+                div(class="col s12 center-align")
+                    img(src="" id="picture" onload="showImage();")
+                    script.
+                        function showImage() {
+                            document.getElementById('picture').src = "#{twitter_information[0]['profile_picture']}";
+                        }
+
+                div(class="col s12 center-align")
+                    div(class="row valign-wrapper")
+                        div(class="col s12")
+                            i(class="material-icons") #{twitter_information[0]['protected_icon']}
+                            span(style="font: 2em 'Open Sans';")   #{twitter_information[0]['user']}
+            div(class="col s12")
+                div(class="col s6")
+                    span Name: 
+                div(class="col s6")
+                    span #{twitter_information[0]['name']}
+            div(class="col s12")
+                div(class="col s6")
+                    span Description: 
+                div(class="col s6")
+                    span #{twitter_information[0]['description']}
+            div(class="col s12")
+                div(class="col s6")
+                    span Location: 
+                div(class="col s6")
+                    span #{twitter_information[0]['location']}
+            div(class="col s12")
+                div(class="col s6")
+                    span Name: 
+                div(class="col s6")
+                    span #{twitter_information[0]['name']}          
