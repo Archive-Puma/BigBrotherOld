@@ -9,10 +9,11 @@ router.get("/", function(request, response) {
 
 });
 
-// REST Routes
+/* ------------------------------------ */
+/* --------------- REST --------------- */
+/* ------------------------------------ */
 
-/* Twitter */
-
+// Twitter
 router.route("/twitter")
     .get(function(request,response){
         response.render("information/twitter");
@@ -33,4 +34,6 @@ router.route("/twitter/:id")
 
     });
 
+
+// Module Exports
 module.exports = router;
