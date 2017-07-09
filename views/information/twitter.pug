@@ -10,37 +10,38 @@ block source_code
     div(class="w3-display-middle")
         div(class="row valign-wrapper")
             div(class="card-panel grey lighten-5 z-depth-1")
-                div(class="col s2 center-align")
-                    img(src="" id="picture" class="circle z-depth-2")
-                div(class="col s10 center-align")
-                    div(class="col s12" style="padding-top:5%; padding-left:10%;")
-                        i(class="material-icons") #{twitter_information[0]['protected_icon']}
-                        span(style="font: 2em 'Open Sans';")   #{twitter_information[0]['user']}
+                a(href="#!" id="profile_url")
+                    div(class="col s2 center-align")
+                        img(src="#!" id="picture" class="circle z-depth-2")
+                    div(class="col s10 center-align")
+                        div(class="col s12" style="padding-top:5%; padding-left:10%;")
+                            i(class="material-icons") #{twitter_information[0]['protected_icon']}
+                            span(style="font: 2em 'Open Sans';")   #{twitter_information[0]['user']}
         br
         ul(class="collection")
             li(class="collection-item avatar")
-                i(class="material-icons circle deep-purple lighten-3") person
+                i(class="material-icons circle purple lighten-1") person
                 span(class="title")
                     b Name:
                 p #{twitter_information[0]['name']}
             li(class="collection-item avatar")
-                i(class="material-icons circle blue lighten-3") lightbulb_outline
+                i(class="material-icons circle blue lighten-1") lightbulb_outline
                 span(class="title") 
                     b Description:
                 p #{twitter_information[0]['description']}
             li(class="collection-item avatar")
-                i(class="material-icons circle green lighten-3") place
+                i(class="material-icons circle green lighten-1") place
                 span(class="title") 
                     b Location:
                 p #{twitter_information[0]['location']}
             li(class="collection-item avatar")
-                i(class="material-icons circle yellow darken-1") public
+                i(class="material-icons circle yellow darken-2") public
                 span(class="title") 
                     b URL:
                 p
-                    a(href="" id="url") #{twitter_information[0]['url']}
+                    a(href="#!" id="url") #{twitter_information[0]['url']}
             li(class="collection-item avatar")
-                i(class="material-icons circle lime lighten-3") group
+                i(class="material-icons circle red lighten-1") group
                 span(class="title") 
                     b Following:
                 p #{twitter_information[0]['following']}
@@ -52,6 +53,7 @@ block source_code
     script.
         function updateLinks() {
             document.getElementById('url').href = "#{twitter_information[0]['url']}";
+            document.getElementById('profile_url').href = "https://twitter.com/#{twitter_information[0]['user']}"
             document.getElementById('picture').src = "#{twitter_information[0]['profile_picture']}";
         }
         updateLinks();
