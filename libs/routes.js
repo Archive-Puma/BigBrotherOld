@@ -16,6 +16,9 @@ router.get("/", function(request, response) {
 // Twitter
 router.route("/twitter")
     .get(function(request,response){
+        if(request.locals['twitter_current'] == undefined)
+            request.locals['twitter_current'] = 0;
+        response.locals['twitter_information'] = request.locals['twitter_information'][request.locals['twitter_current']];
         response.render("information/twitter");
     })
     .post(function(request,response){
@@ -25,7 +28,7 @@ router.route("/twitter")
 
 router.route("/twitter/:id")
     .get(function(request,response){
-
+        response.redirect("/information/twitter");
     })
     .put(function(request,response){
 
