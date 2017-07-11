@@ -170,17 +170,5 @@
        id="rect20"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc" />
-    <path
-       style="fill:#ffffff;fill-opacity:0.16176471;stroke-width:0.15670423"
-       id="path4503"
-       sodipodi:type="arc"
-       sodipodi:cx="216.82333"
-       sodipodi:cy="92.910873"
-       sodipodi:rx="20.407543"
-       sodipodi:ry="5.8108115"
-       sodipodi:start="6.1673696"
-       sodipodi:end="3.1971947"
-       d="m 237.09416,92.239394 a 20.407543,5.8108115 0 0 1 -9.04819,5.524748 20.407543,5.8108115 0 0 1 -21.39923,0.183502 20.407543,5.8108115 0 0 1 -10.19941,-5.359697 l 20.376,0.322926 z"
-       transform="matrix(0.93532362,0.35379334,-0.46248642,0.88662636,0,0)" />
   </g>
 </svg>
