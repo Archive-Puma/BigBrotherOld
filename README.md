@@ -1,5 +1,4 @@
-<a><img src="http://orwell.lifestream-creations.com/appicon.png" height="200" align="right"></a>
-
+<a href="https://pugjs.org"><img src="https://cdn.rawgit.com/CosasDePuma/BigBrother/a9b823dc/public/icons/bigbrother.svg" height="200" align="right"></a>
 # BIG BROTHER
 
 [![NodeJS Version](https://img.shields.io/badge/nodejs-4.8.3-yellowgreen.svg?style=flat)](https://nodejs.org/es/download/package-manager/)
