@@ -8,18 +8,19 @@ block source_code
                     a(href="")
                         i(class="material-icons") chevron_left
                 for page in total
+                    - var num = page - 1;
                     li(class="disable")
-                        a(href="/information/twitter/#{page}") #{page}
+                        a(href="/information/twitter/" + num) #{page}
                 li(class="disabled")
                     a(href="")
                         i(class="material-icons") chevron_right
 
     div(class="container w3-display-middle")
         div(class="row")
-            div(class="card-panel grey lighten-5 z-depth-1 col s4 offset-s4")
+            div(class="card-panel grey lighten-5 z-depth-1 col s6 offset-s3")
                 div(class="container")
                     br
-                    a(href="#!" id="profile_url" class="name")
+                    a(href="#!" id="profile_url" class="link")
                         div(class="center-align")
                             img(src="#!" id="picture" class="circle z-depth-2")
                         div(class="center-align")
@@ -73,20 +74,25 @@ block source_code
 block styles
     style.
 
+        /* https://coolors.co/a393bf-9882ac-73648a-453750-0c0910 */
         :root {
-            --dark-liver: #50514F;
-            --green-sheen: #70C1B3;
-            --lapis-lazuli: #247BA0;
-            --mustard: #FFE066;
-            --sunset-orange: #F25F5C;
+            --pallete-1: #A393BF;
+            --pallete-2: #9882AC;
+            --pallete-3: #73648A;
+            --pallete-4: #453750;
+            --pallete-5: #0C0910;
+        }
+
+        .link {
+            color: var(--pallete-5);
         }
 
         .nav-wrapper {
             margin-top: 1em;
-            background-color: var(--green-sheen);
+            background-color: var(--pallete-2);
         }
 
         .title {
             color: #778899;
-            color: var(--dark-liver);
+            color: var(--pallete-4);
         }

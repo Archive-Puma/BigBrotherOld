@@ -17,8 +17,8 @@ router.get("/", function(request, response) {
 router.route("/twitter")
     .get(function(request,response, error){
         var total = [];
-        for(var i = 0; i < response.locals.twitter_results; i++) {
-            total[i] = i;
+        for(var i = 1; i <= response.locals.twitter_results; i++) {
+            total[i-1] = i;
         }
         response.locals.twitter_user = response.locals.twitter_all_users[request.session.current_twitter];
         response.render("information/twitter", {total: total});
