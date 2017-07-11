@@ -1,6 +1,9 @@
 // Import Mongoose library
 var mongo = require("mongoose");
 
+// Use Promise to avoid warnings
+mongo.Promise = global.Promise;
+
 // Connect to MongoDB
 mongo.connect("mongodb://localhost/bigbrother", { useMongoClient: true }, function() {
     mongo.connection.db.dropDatabase();
