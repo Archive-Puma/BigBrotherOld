@@ -14,20 +14,35 @@ html(language="es")
         //- More metatags?
         block metatags
 
+        // Pallete
+        style.
+            /* Color Pattern */
+            /* https://coolors.co/a393bf-9882ac-73648a-453750-0c0910 */
+            
+            :root {
+                --pallete-1: #A393BF;
+                --pallete-2: #9882AC;
+                --pallete-3: #73648A;
+                --pallete-4: #453750;
+                --pallete-5: #0C0910;
+            }
+
         //- Stylish website
         block styles
 
         // Import Google Icon Font
-        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         // CSS Stylesheets
         link(href="https://www.w3schools.com/w3css/4/w3.css", rel="stylesheet")
-        link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css", rel="stylesheet")
+        //-link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css", rel="stylesheet")
+        link(href="/materialize-css/css/materialize.min.css" rel="stylesheet" type="text/css")
     
     body
         // Import jQuery before materialize.js
         script(src="https://code.jquery.com/jquery-2.1.1.min.js")
         // Compiled and minified JavaScript
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js")
+        //-script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js")
+        script(src="/materialize-css/js/materialize.min.js")
 
         //- Webpage content
         block source_code

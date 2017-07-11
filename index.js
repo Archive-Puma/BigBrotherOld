@@ -33,6 +33,7 @@ server.use(bodyparser.urlencoded({extended:true }));
 
 // Set link to static files
 server.use("/assets/public_files", express.static('public'));
+server.use("/materialize-css", express.static('node_modules/materialize-css/dist'));
 
 // Set session arguments
 server.use(session({

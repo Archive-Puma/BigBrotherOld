@@ -27,7 +27,7 @@ router.route("/twitter")
     // POST
     .post(function(request,response){
         // Search users
-        twitter_search(request.session.user, request.body.mysterious-person);
+        twitter_search(request.session.user, request.body.mysteriousperson);
         response.render("searching");
     });
 
