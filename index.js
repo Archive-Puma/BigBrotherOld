@@ -48,6 +48,12 @@ server.use(session({
 
 // Index
 server.get("/", function(request, response) {
+    // Logging out
+    twitter_user.remove({ session:request.session.user }, function(error, document) {
+        if(error) {
+            console.log(error);
+        }
+    });
     // Read Index Jade view
     response.render("index");
 });

@@ -6,7 +6,7 @@ var twitter_search = require("./socials/twitter").twitter_search;
 
 // Routes
 router.get("/", function(request, response) {
-
+    
 });
 
 /* ------------------------------------ */
@@ -16,15 +16,15 @@ router.get("/", function(request, response) {
 // Twitter
 router.route("/twitter")
     .get(function(request,response, error){
-        var total = [];
+        var pagination = [];
         for(var i = 1; i <= response.locals.twitter_results; i++) {
-            total[i-1] = i;
+            pagination[i-1] = i;
         }
         response.locals.twitter_user = response.locals.twitter_all_users[request.session.current_twitter];
-        response.render("information/twitter", {total: total});
+        response.render("information/twitter", { pagination: pagination, current: request.session.current_twitter });
     })
     .post(function(request,response){
-        twitter_search(request.session.id, request.body.nickname);
+        twitter_search(request.session.user, request.body.nickname);
         response.render("searching");
     });
 
