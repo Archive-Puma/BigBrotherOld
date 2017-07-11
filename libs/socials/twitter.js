@@ -1,4 +1,4 @@
-var Twitter = require("./tokens").Twitter;
+var Twitter = require("./token").Twitter;
 
 // Schema 
 var twitter_user = require("../models/twitter/user").twitter_user;
