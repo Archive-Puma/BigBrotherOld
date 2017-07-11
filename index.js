@@ -14,7 +14,6 @@ var session = require("express-session");
 // Import own libraries
 var router = require("./libs/routes");
 var uac = require("./libs/uac");
-var Twitter = require("./libs/socials/twitter").Twitter;
 var twitter_user = require("./libs/models/twitter/user").twitter_user;
 
 /* ------------------------------------ */
