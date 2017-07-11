@@ -4,16 +4,10 @@ block source_code
     nav(class ="container")
         div(class="nav-wrapper")
             ul(class="brand-logo center")
-                li(class="disabled")
-                    a(href="/information/twitter/" + last_page)
-                        i(class="material-icons") chevron_left
                 for page in pagination
                     - var num = page - 1;
                     li(class="disable")
                         a(href="/information/twitter/" + num) #{page}
-                li(class="disabled")
-                    a(href="/information/twitter/" + next_page)
-                        i(class="material-icons") chevron_right
 
     div(class="container w3-display-middle")
         div(class="row")
@@ -51,7 +45,7 @@ block source_code
                 span(class="title") 
                     b URL:
                 p
-                    a(href=twitter_user.url) #{twitter_user.url}
+                    a(href=twitter_user.url class="link") #{twitter_user.url}
             li(class="collection-item avatar")
                 i(class="material-icons circle red lighten-1") group
                 span(class="title") 

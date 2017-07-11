@@ -5,7 +5,6 @@ var twitter_user = require("../models/twitter/user").twitter_user;
 
 // Functions
 function twitter_search(session_id, name) {
-    console.log(session_id);
     Twitter.get("users/search", {
         "q": name,
         count: 5
