@@ -2,7 +2,9 @@
 # BIG BROTHER
 
 [![NodeJS Version](https://img.shields.io/badge/nodejs-4.8.3-yellowgreen.svg?style=flat)](https://nodejs.org/es/download/package-manager/)
-![Made with Love](https://img.shields.io/badge/made%20with-<3-ff69b4.svg?style=flat)
+[![CSS](https://img.shields.io/badge/stylesheet-materialize--css-ff80ab.svg?style=flat)](https://materialize-css.com/)
+[![Palette](https://img.shields.io/badge/palette-purple%20rain-73648A.svg?style=flat)](https://coolors.co/a393bf-9882ac-73648a-453750-0c0910)
+![Made with Love](https://img.shields.io/badge/made%20with-<3-red.svg?style=flat)
 [![License](https://img.shields.io/github/license/CosasDePuma/BigBrother.svg)](https://github.com/CosasDePuma/BigBrother/blob/master/LICENSE)
 
 Data collection tool about people
