@@ -1,6 +1,7 @@
 extends ./layout.pug
 
 block source_code
+
     // Information about the target
     div(class="w3-display-middle")
         div(class="row")
@@ -8,14 +9,9 @@ block source_code
                 form(action="/searching", method="POST")
                     // Text Boxs
                     div(class="input-field")
-                        input(id="nickname", name="nickname", type="text")
-                        label(for="nickname") Nickname
-                    //- div(class="input-field")
-                    //-     input(id="surname", name="surname", type="text")
-                    //-     label(for="surname") Surnames
-                    //- div(class="input-field")
-                    //-     input(id="nickname", name="nickname", type="text")
-                    //-     label(for="nickname") Nickname    
+                        input(id="mysterious-person", name="mysterious-person", type="text")
+                        label(for="mysterious-person") Mysterious Person or Corporation
                     br
+                    // Buttons
                     button(class="btn waves-effect") Search
                         i(class="material-icons right") search

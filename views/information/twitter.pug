@@ -1,16 +1,21 @@
 extends ../layout.pug
 
 block source_code
+
+    // Navbar
     nav(class ="container")
         div(class="nav-wrapper")
+            // Pagination
             ul(class="brand-logo center")
                 for page in pagination
                     - var num = page - 1;
                     li(class="disable")
                         a(href="/information/twitter/" + num) #{page}
 
+    // Content
     div(class="container w3-display-middle")
         div(class="row")
+            // Card Panel
             div(class="card-panel grey lighten-5 z-depth-1 col s6 offset-s3")
                 div(class="container")
                     br
@@ -25,27 +30,32 @@ block source_code
                                 br
         br
         ul(class="collection")
+            // Name
             li(class="collection-item avatar")
                 i(class="material-icons circle purple lighten-1") person
                 span(class="title")
                     b Name:
                 p #{twitter_user.name}
+            // Description
             li(class="collection-item avatar")
                 i(class="material-icons circle blue lighten-1") lightbulb_outline
                 span(class="title") 
                     b Description:
                 p #{twitter_user.description}
+            // Location
             li(class="collection-item avatar")
                 i(class="material-icons circle green lighten-1") place
                 span(class="title") 
                     b Location:
                 p #{twitter_user.location}
+            // URL
             li(class="collection-item avatar")
                 i(class="material-icons circle yellow darken-2") public
                 span(class="title") 
                     b URL:
                 p
                     a(href=twitter_user.url class="link") #{twitter_user.url}
+            // Follows
             li(class="collection-item avatar")
                 i(class="material-icons circle red lighten-1") group
                 span(class="title") 
@@ -58,7 +68,9 @@ block source_code
 block styles
     style.
 
+        /* Color Pattern */
         /* https://coolors.co/a393bf-9882ac-73648a-453750-0c0910 */
+        
         :root {
             --pallete-1: #A393BF;
             --pallete-2: #9882AC;
@@ -70,12 +82,10 @@ block styles
         .link {
             color: var(--pallete-5);
         }
-
         .nav-wrapper {
             margin-top: 1em;
             background-color: var(--pallete-2);
         }
-
         .title {
             color: #778899;
             color: var(--pallete-4);

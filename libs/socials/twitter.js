@@ -1,3 +1,4 @@
+// Import Tokens and Keys
 var Twitter = require("./tokens").Twitter;
 
 // Schema 
@@ -34,7 +35,7 @@ function twitter_search(session_id, name) {
                 if(!error) {
                     return;
                 } else {
-                    response.render(error);
+                    console.log(error);
                 }
             });
         }
@@ -43,4 +44,6 @@ function twitter_search(session_id, name) {
     return;
 };
 
+
+// Module Exports
 module.exports.twitter_search = twitter_search;

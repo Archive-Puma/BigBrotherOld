@@ -48,7 +48,7 @@ server.use(session({
 
 // Index
 server.get("/", function(request, response) {
-    // Logging out
+    // New search
     twitter_user.remove({ session:request.session.user }, function(error, document) {
         if(error) {
             console.log(error);
@@ -64,7 +64,7 @@ server.post("/searching", function(request, response) {
     response.redirect(307, "/information/twitter"); //307 redirect the same method
 });
 
-// Root Dir
+// Twitter Dir
 server.get("/twitter", function(request, response) {
     // Read database
     twitter_user.find(function(error, document) {

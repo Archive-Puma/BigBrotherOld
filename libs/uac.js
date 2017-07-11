@@ -1,5 +1,7 @@
+// Import Schema
 var twitter_user = require("./models/twitter/user").twitter_user;
 
+// Module Exports
 module.exports = function(request, response, next) {
     // If user does not search anything ...
     if(!request.session.user) {
