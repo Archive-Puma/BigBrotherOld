@@ -15,11 +15,13 @@ router.get("/", function(request, response) {
 
 // Twitter
 router.route("/twitter")
-    .get(function(request,response){
-        if(request.locals['twitter_current'] == undefined)
-            request.locals['twitter_current'] = 0;
-        response.locals['twitter_information'] = request.locals['twitter_information'][request.locals['twitter_current']];
-        response.render("information/twitter");
+    .get(function(request,response, error){
+        var total = [];
+        for(var i = 0; i < response.locals.twitter_results; i++) {
+            total[i] = i;
+        }
+        response.locals.twitter_user = response.locals.twitter_all_users[request.session.current_twitter];
+        response.render("information/twitter", {total: total});
     })
     .post(function(request,response){
         twitter_search(request.session.id, request.body.nickname);
@@ -28,6 +30,9 @@ router.route("/twitter")
 
 router.route("/twitter/:id")
     .get(function(request,response){
+        if(request.params.id < response.locals.twitter_results) {
+            request.session.current_twitter = request.params.id;
+        }
         response.redirect("/information/twitter");
     })
     .put(function(request,response){

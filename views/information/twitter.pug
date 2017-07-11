@@ -1,59 +1,92 @@
 extends ../layout.pug
 
-block styles
-    style.
-        .title {
-            color: #778899;
-        }
-
 block source_code
-    div(class="w3-display-middle")
-        div(class="row valign-wrapper")
-            div(class="card-panel grey lighten-5 z-depth-1")
-                a(href="#!" id="profile_url")
-                    div(class="col s2 center-align")
-                        img(src="#!" id="picture" class="circle z-depth-2")
-                    div(class="col s10 center-align")
-                        div(class="col s12" style="padding-top:5%; padding-left:10%;")
-                            i(class="material-icons") #{twitter_information['protected_icon']}
-                            span(style="font: 2em 'Open Sans';")   #{twitter_information['user']}
+    nav(class ="container")
+        div(class="nav-wrapper")
+            ul(class="brand-logo center")
+                li(class="disabled")
+                    a(href="")
+                        i(class="material-icons") chevron_left
+                for page in total
+                    li(class="disable")
+                        a(href="/information/twitter/#{page}") #{page}
+                li(class="disabled")
+                    a(href="")
+                        i(class="material-icons") chevron_right
+
+    div(class="container w3-display-middle")
+        div(class="row")
+            div(class="card-panel grey lighten-5 z-depth-1 col s4 offset-s4")
+                div(class="container")
+                    br
+                    a(href="#!" id="profile_url" class="name")
+                        div(class="center-align")
+                            img(src="#!" id="picture" class="circle z-depth-2")
+                        div(class="center-align")
+                            div(class="col s12" style="padding-top:5%; padding-left:10%;")
+                                i(class="material-icons") #{twitter_user['protected_icon']}
+                                span(style="font: 2em 'Open Sans';")   #{twitter_user['user']}
+                                br
+                                br
+                            
         br
         ul(class="collection")
             li(class="collection-item avatar")
                 i(class="material-icons circle purple lighten-1") person
                 span(class="title")
                     b Name:
-                p #{twitter_information['name']}
+                p #{twitter_user['name']}
             li(class="collection-item avatar")
                 i(class="material-icons circle blue lighten-1") lightbulb_outline
                 span(class="title") 
                     b Description:
-                p #{twitter_information['description']}
+                p #{twitter_user['description']}
             li(class="collection-item avatar")
                 i(class="material-icons circle green lighten-1") place
                 span(class="title") 
                     b Location:
-                p #{twitter_information['location']}
+                p #{twitter_user['location']}
             li(class="collection-item avatar")
                 i(class="material-icons circle yellow darken-2") public
                 span(class="title") 
                     b URL:
                 p
-                    a(href="#!" id="url") #{twitter_information['url']}
+                    a(href="#!" id="url") #{twitter_user['url']}
             li(class="collection-item avatar")
                 i(class="material-icons circle red lighten-1") group
                 span(class="title") 
                     b Following:
-                p #{twitter_information['following']}
+                p #{twitter_user['following']}
                 span(class="title") 
                     b Followers:
-                p #{twitter_information['followers']}
-
+                p #{twitter_user['followers']}
 
     script.
         function updateLinks() {
-            document.getElementById('url').href = "#{twitter_information['url']}";
-            document.getElementById('profile_url').href = "https://twitter.com/#{twitter_information['user']}"
-            document.getElementById('picture').src = "#{twitter_information['profile_picture']}";
+            document.getElementById('url').href = "#{twitter_user['url']}";
+            document.getElementById('profile_url').href = "https://twitter.com/#{twitter_user['user']}"
+            document.getElementById('picture').src = "#{twitter_user['profile_picture']}";
         }
         updateLinks();
+
+
+block styles
+    style.
+
+        :root {
+            --dark-liver: #50514F;
+            --green-sheen: #70C1B3;
+            --lapis-lazuli: #247BA0;
+            --mustard: #FFE066;
+            --sunset-orange: #F25F5C;
+        }
+
+        .nav-wrapper {
+            margin-top: 1em;
+            background-color: var(--green-sheen);
+        }
+
+        .title {
+            color: #778899;
+            color: var(--dark-liver);
+        }
