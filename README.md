@@ -42,12 +42,11 @@ You can run the server using Nodemon (optional)
 nodemon
 ```
 
-> Essentials
-```
-nodejs npm nodemon
-```
+&nbsp;
+>>>>> **<p align="center"> ESSENTIALS <p>**
+<p align="center"><marquee> nodejs npm nodemon </marquee><p></br>
 
- Please contact with [Kike Puma](https://linkedin.com/in/kikepuma) if you need more information.
+Please contact with [Kike Puma](https://linkedin.com/in/kikepuma) if you need more information.
 
 ## Screenshots
 
