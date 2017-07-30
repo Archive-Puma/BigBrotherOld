@@ -2,7 +2,7 @@
 ======================= */
 
 const electron = require('electron')
-const {app, BrowserWindow, session} = electron  // Electron Modules
+const {app, BrowserWindow} = electron  // Electron Modules
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,7 +12,7 @@ let mainWindow
 /** FUNCTIONS >>
 ======================= */
 
-createWindow = () => {
+let createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,
@@ -24,12 +24,10 @@ createWindow = () => {
     }
   })
 
-  let mainSession = mainWindow.webContents.session
-
   // Load the index.html of the app
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
-  //
+  // Quit the Menu
   mainWindow.on('browser-window-created', (err, window) => {
     if (!err) { window.setMenu(null) }
   })
@@ -46,8 +44,8 @@ createWindow = () => {
 /** EXPORTS >>
 ======================= */
 
-exports.results = (name,data) => {
-  mainWindow.loadURL(`file://${__dirname}/` + name + ".html")
+exports.results = (name, data) => {
+  mainWindow.loadURL(`file://${__dirname}/` + name + '.html')
   console.log(data)
 }
 

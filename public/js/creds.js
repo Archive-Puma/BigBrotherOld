@@ -1,5 +1,7 @@
 // TWITTER ~ https://apps.twitter.com/
-exports.Twitter = new require('twit')({
+const Twit = require('twit')
+
+exports.Twitter = Twit({
   consumer_key: '',
   consumer_secret: '',
   access_token: '',

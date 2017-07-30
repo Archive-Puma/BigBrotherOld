@@ -7,12 +7,12 @@ const db = require('mongojs')('127.0.0.1/bigbrother', ['twitter'])
 /** FUNCTIONS >>
 ======================= */
 // sleep time expects milliseconds
-sleep = (time) => {
-  return new Promise((resolve) => setTimeout(resolve, time));
+let sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time))
 }
 
 // loading page
-loading = () => {
+let loading = () => {
   document.getElementById('content').innerHTML = `
   <div class="spinner">
     <div class="bounce1"></div>
@@ -21,18 +21,18 @@ loading = () => {
   </div>`
 }
 
-twitterGathering = (query) => {
+let twitterGathering = (query) => {
   // get Twitter creds
   var Twitter = remote.require('./public/js/creds.js').Twitter
   // search Twitter users
   Twitter.get('users/search', { 'q': query, count: 5 }, (error, data) => {
     // handle the error
-    if(error) {
+    if (error) {
       console.log(error.getMessage())
       return
     }
     // split information
-    for(var profile in data) {
+    for (var profile in data) {
       // save information
       db.twitter.save({
         userID: data[profile]['id_str'],
@@ -77,18 +77,16 @@ document.getElementById('zoom-btn').addEventListener('click', () => {
 document.getElementById('search-btn').addEventListener('click', () => {
   // Rewrite DB
   db.twitter.drop()
-  // Get the value
-  var query = document.getElementById('target').value
   // Get twitter irformation
   twitterGathering(document.getElementById('target').value)
   // Wait with a Loading Page
   loading()
   // Set time to wait to 3s
   sleep(3000).then(() => {
-    db.twitter.find({}, (err,data) => {
-      main.results('twitter', data)
+    db.twitter.find({}, (error, data) => {
+      if (!error) {
+        main.results('twitter', data)
+      }
     })
   })
 })
-
-

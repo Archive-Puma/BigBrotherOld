@@ -31,5 +31,6 @@
     "electron": "^1.6.11",
     "mongojs": "^2.4.0",
     "twit": "^2.2.9"
-  }
+  },
+  "devDependencies": {}
 }
