@@ -1,86 +1,94 @@
-/* ------------------------------------ */
-/* ------------- LIBRARIES ------------ */
-/* ------------------------------------ */
+// Electron Remote Constants
+const {remote} = require('electron')
+const main = remote.require('./main.js')
+// Connect to DB
+const db = require('mongojs')('127.0.0.1/bigbrother', ['twitter'])
 
-// Import Body-Parser library
-var bodyparser = require("body-parser");
+/** FUNCTIONS >>
+======================= */
+// sleep time expects milliseconds
+sleep = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 
-// Import Express library
-var express = require("express");
+// loading page
+loading = () => {
+  document.getElementById('content').innerHTML = `
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>`
+}
 
-// Import Express-Session library
-var session = require("express-session");
+twitterGathering = (query) => {
+  // get Twitter creds
+  var Twitter = remote.require('./public/js/creds.js').Twitter
+  // search Twitter users
+  Twitter.get('users/search', { 'q': query, count: 5 }, (error, data) => {
+    // handle the error
+    if(error) {
+      console.log(error.getMessage())
+      return
+    }
+    // split information
+    for(var profile in data) {
+      // save information
+      db.twitter.save({
+        userID: data[profile]['id_str'],
+        user: data[profile]['screen_name'],
+        name: data[profile]['name'],
+        location: data[profile]['location'],
+        description: data[profile]['description'],
+        url: data[profile]['url'],
+        protected: data[profile]['protected'],
+        following: data[profile]['friends_count'],
+        followers: data[profile]['followers_count'],
+        lang: data[profile]['lang'],
+        profile_image: data[profile]['profile_image_url_https']
+      })
+    }
+  })
+}
 
-// Import own libraries
-var router = require("./libs/routes");
-var uac = require("./libs/uac");
-var twitter_user = require("./libs/models/twitter/user").twitter_user;
+/** WINDOW BUTTONS >>
+======================= */
+document.getElementById('close-btn').addEventListener('click', () => {
+  var window = remote.getCurrentWindow()
+  window.close()
+}, false)
 
-/* ------------------------------------ */
-/* ------------ MIDDLEWARES ----------- */
-/* ------------------------------------ */
+document.getElementById('min-btn').addEventListener('click', () => {
+  var window = remote.getCurrentWindow()
+  window.minimize()
+}, false)
 
-// Create server
-var server = express();
+document.getElementById('zoom-btn').addEventListener('click', () => {
+  var window = remote.getCurrentWindow()
+  if (!window.isMaximized()) {
+    window.maximize()
+  } else {
+    window.unmaximize()
+  }
+}, false)
 
-// Set ViewEngine to read Pug views
-server.set("view engine","pug");
+/** DATABASE BUTTONS >>
+======================= */
+document.getElementById('search-btn').addEventListener('click', () => {
+  // Rewrite DB
+  db.twitter.drop()
+  // Get the value
+  var query = document.getElementById('target').value
+  // Get twitter irformation
+  twitterGathering(document.getElementById('target').value)
+  // Wait with a Loading Page
+  loading()
+  // Set time to wait to 3s
+  sleep(3000).then(() => {
+    db.twitter.find({}, (err,data) => {
+      main.results('twitter', data)
+    })
+  })
+})
 
-// Argument Parser: Application/JSON
-server.use(bodyparser.json());
-// Argument Parser: Text/HTML
-server.use(bodyparser.urlencoded({extended:true }));
 
-// Set link to static files
-server.use("/assets/public_files", express.static('public'));
-server.use("/materialize-css", express.static('node_modules/materialize-css/dist'));
-
-// Set session arguments
-server.use(session({
-    // Secret String needs to be unique for all our NodeJS proyects
-    secret: "0xDEAD_B1gBr0th3R_Session",
-    resave: false, saveUninitialized: false
-}));
-
-/* ------------------------------------ */
-/* ------------- REQUESTS ------------- */
-/* ------------------------------------ */
-
-// Index
-server.get("/", function(request, response) {
-    // New search
-    twitter_user.remove({ session:request.session.user }, function(error, document) {
-        if(error) {
-            console.log(error);
-        }
-    });
-    // Read Index Jade view
-    response.render("index");
-});
-
-// Gathering information
-server.post("/searching", function(request, response) {
-    request.session.user = request.session.id;
-    response.redirect(307, "/information/twitter"); //307 redirect the same method
-});
-
-// Twitter Dir
-server.get("/twitter", function(request, response) {
-    // Read database
-    twitter_user.find(function(error, document) {
-        response.send(document);
-    });
-});
-
-/* ------------------------------------ */
-/* -------------- THREAD -------------- */
-/* ------------------------------------ */
-
-// Set the UAC
-server.use("/information",uac);
-
-// Start the Router
-server.use("/information",router);
-
-// Start server in port 8080
-server.listen(8080);

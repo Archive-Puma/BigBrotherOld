@@ -2,9 +2,9 @@
 
 # BIG BROTHER
 
-[![NodeJS Version](https://img.shields.io/badge/nodejs-4.8.3-yellowgreen.svg?style=flat)](https://nodejs.org/es/download/package-manager/)
-[![CSS](https://img.shields.io/badge/stylesheet-materialize--css-ff80ab.svg?style=flat)](https://materialize-css.com/)
-[![Palette](https://img.shields.io/badge/palette-purple%20rain-73648A.svg?style=flat)](https://coolors.co/a393bf-9882ac-73648a-453750-0c0910)
+[![NodeJS Version](https://img.shields.io/badge/nodejs-8.1.4-yellowgreen.svg?style=flat)](https://nodejs.org/es/download/package-manager/)
+[![CSS](https://img.shields.io/badge/stylesheet-photonkit-abb2bf.svg?style=flat)](http://photonkit.com)
+[![Pallete](https://img.shields.io/badge/pallete-apparatus-282c34.svg?style=flat)](https://github.com/Or3stis/apparatus)
 ![Made with Love](https://img.shields.io/badge/made%20with-<3-red.svg?style=flat)
 [![License](https://img.shields.io/github/license/CosasDePuma/BigBrother.svg)](https://github.com/CosasDePuma/BigBrother/blob/master/LICENSE)
 
@@ -27,27 +27,32 @@ Data collection tool about people
 
 Clone or download the Github project
 ```sh
-git clone https://github.com/cosasdepuma/bigbrother.git && cd bigbrother/
+git clone https://github.com/cosasdepuma/bigbrother.git && cd bigbrother
 ```
 
 Install the requirements
-```sh
+```js
 npm install
 ```
 
-Test the program (http://localhost:8080/)
+Initialize a MongoDB Daemon
 ```sh
-npm test
+mongod --dbpath=<your db path> --port=27017
 ```
 
-You can run the server using Nodemon (optional)
+Change  var tokens in 
 ```sh
-nodemon
+public/js/creds.js
+```
+
+Run the program
+```js
+npm start
 ```
 
 &nbsp;
 > <p align="center"><b> ESSENTIALS </b><p>
-<p align="center"><marquee> nodejs npm nodemon </marquee><p></br>
+<p align="center"><marquee> mongo nodejs npm electron </marquee><p></br>
 
 Please contact with [Kike Puma](https://linkedin.com/in/kikepuma) if you need more information.
 
@@ -65,10 +70,15 @@ Please contact with [Kike Puma](https://linkedin.com/in/kikepuma) if you need mo
 ### Development
 
 BigBrother was originally developed using NodeJS, Express and Pug (Jade).
+This new version was completely redesigned with Electron.
 
 It is advisable to create an account in:
 
-~ [Twitter](https://apps.twitter.com/).
+~ [Twitter](https://apps.twitter.com/)
+
+If you do not want to host your own Mongo database, you can create an account in MLab:
+
+~ [MLab](https://mlab.com/)
 
 
 Want to contribute? Great!

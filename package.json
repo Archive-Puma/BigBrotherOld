@@ -1,10 +1,11 @@
 {
   "name": "bigbrother",
-  "version": "1.2.0",
-  "description": "Personal Information Gathering",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Data collection tool about people",
+  "main": "main.js",
   "scripts": {
-    "test": "nodejs index.js"
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -20,19 +21,15 @@
     "people",
     "interest"
   ],
-  "author": "KikePuma",
+  "author": "CosasDePuma <kikefontanlorenzo@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cosasdepuma/bigbrother/issues"
   },
   "homepage": "https://github.com/cosasdepuma/bigbrother#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "express-session": "^1.15.3",
-    "materialize-css": "^0.99.0",
-    "mongoose": "^4.11.1",
-    "pug": "^0.1.0",
+    "electron": "^1.6.11",
+    "mongojs": "^2.4.0",
     "twit": "^2.2.9"
   }
 }

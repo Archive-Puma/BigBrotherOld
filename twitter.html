@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OhanaMeans: BigBrother</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="public/css/photon.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+  </head>
+
+  <body>
+    <!-- Wrap your entire app inside .window -->
+    <div class="window">
+
+        <!-- .toolbar-header sits at the top of your app -->
+        <header class="toolbar toolbar-header">
+        <h1 class="title pull-left"><b>OhanaMeans: Big Brother</b></h1>
+        <div class="pull-right">
+            <button id="zoom-btn" class="btn btn-positive"></button>
+            <button id="min-btn" class="btn btn-warning"></button>
+            <button id="close-btn" class="btn btn-negative"></button>
+        </div>            
+        </header>
+
+        <!-- Your app's content goes inside .window-content -->
+        <div class="window-content">
+            <div class="padded-more">
+                <div id="content" class="centered">
+
+                    <h1>PANTALLA DE TWITTER</h1>
+
+                </div>
+            </div>
+        </div> <!-- /window-content -->
+
+        <!-- footer with control buttons -->
+        <footer class="toolbar toolbar-footer">
+            <div class="toolbar-actions">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-primary active">
+                        <span class="icon icon-twitter"></span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <span class="icon icon-facebook"></span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <span class="icon icon-linkedin"></span>
+                    </button>
+                    <button class="btn btn-primary">
+                        <span class="icon icon-github"></span>
+                    </button>
+                </div>
+        </footer>
+
+    </div> <!-- /window -->
+
+    <!-- Electron Javascript -->
+    <script src="./twitter.js"></script>
+
+  </body>
+</html>
