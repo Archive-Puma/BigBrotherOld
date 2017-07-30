@@ -1,7 +1,7 @@
 {
   "name": "bigbrother",
   "version": "2.0.0",
-  "description": "Data collection tool about people",
+  "description": "Data collection tool about people (Electron Version)",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
