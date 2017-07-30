@@ -15,7 +15,7 @@ Data collection tool about people
 
 ## New Features!
 
-  - Not yet...
+  - New Look! Electron Style, babe!
 
 ## BigBrother?
 
