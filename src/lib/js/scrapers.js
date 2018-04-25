@@ -42,10 +42,10 @@ module.exports = {
         RedesSociales.forEach((redSocial) => {
           if(!clasificado && result.link.toLowerCase().includes(redSocial)) {
             clasificado = true
-            Resultados_DuckDuckGo.RedesSociales[Resultados_DuckDuckGo.RedesSociales.length] = result
+            Resultados_DuckDuckGo.RedesSociales.push(result)
           }
         })
-        if(!clasificado) Resultados_DuckDuckGo.Otros[Resultados_DuckDuckGo.Otros.length] = result
+        if(!clasificado) Resultados_DuckDuckGo.Otros.push(result)
       })
       console.log(Resultados_DuckDuckGo)
     }).catch((error) => {
