@@ -7,13 +7,13 @@ let mainWindow
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800, height: 600,
-    frame: false
+    width: 800, height: 640,
+    frame: false, resizable: false
   })
 
   mainWindow.loadURL(`file://${__dirname}/src/index.html`)
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function() {
     mainWindow = null
