@@ -1,3 +1,0 @@
-const LICENSE = {
-  '611672b8b8bec6851024b7f26f7434ca': 'c9ecf1907bea67f9151f7f37947337e3'
-}
