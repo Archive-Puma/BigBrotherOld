@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>OhanaMeans: BigBrother</title>
+    <meta charset="utf-8">
+    <title>BigBrother</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="lib/css/photon.min.css">
-    <link rel="stylesheet" href="lib/css/style.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="lib/css/styles.min.css">
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/CosasDePuma/BigBrother/Commercial/codes.js"></script>
+
   </head>
 
-  <body>
-    <!-- Wrap your entire app inside .window -->
-    <div class="window">
+  <body class="bg">
+      <div></div>
+      <div class="login-dark">
+          <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search" style="padding:20px 10px 20px 20px;">
+              <div class="container"><a class="navbar-brand" href="#">BigBrother</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                  <div class="collapse navbar-collapse" id="navcol-1">
+                      <ul class="nav navbar-nav">
+                      <!--
+                          <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Link</a></li>
+                          <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown </a>
+                              <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                          </li>
+                      -->
+                      </ul>
+                      <a id="zoom-btn" class="btn btn-dark ml-auto action-button component" role="button" style="margin:1px;padding:6px 6px;background-color:rgb(13,108,34);"></a>
+                      <a id="min-btn" class="btn btn-dark action-button component" role="button" style="margin:1px;padding:6px 6px;background-color:rgb(122,94,12);"></a>
+                      <a id="close-btn" class="btn btn-dark action-button component" role="button" style="margin:1px;padding:6px 6px;background-color:rgb(130,11,23);"></a>
+                </div>
+              </div>
+          </nav>
+          <form id="search" class="component">
+              <h2 class="sr-only">Search Form</h2>
+              <div class="illustration"><i class="icon ion-ios-search"></i></div>
+              <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Nombre"></div>
+              <div class="form-group"><input class="form-control" type="text" id="DNI" placeholder="DNI"></div>
+              <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Buscar</button></div>
+          </form>
+      </div>
 
-      <!-- .toolbar-header sits at the top of your app -->
-      <header class="toolbar toolbar-header">
-        <h1 class="title pull-left"><b>OhanaMeans: Big Brother</b></h1>
-        <div class="pull-right">
-          <button id="zoom-btn" class="btn btn-positive"></button>
-          <button id="min-btn" class="btn btn-warning"></button>
-          <button id="close-btn" class="btn btn-negative"></button>
-        </div>
-      </header>
-
-      <!-- Your app's content goes inside .window-content -->
-      <div class="window-content">
-        <div class="padded-more">
-          <div id="content" class="centered">
-
-            <div class="form-group">
-              <label>Target:</label>
-              <input id="target" type="search" class="form-control">
-
-              <button id="search-btn" class="btn btn-large btn-primary">Iniciar búsqueda</button>
-            </div>
-
-          </div>
-        </div>
-      </div> <!-- /window-content -->
-
-      <!-- footer with control buttons -->
-      <footer class="toolbar toolbar-footer">
-      </footer>
-
-    </div> <!-- /window -->
-
-    <!-- Electron Javascript -->
-    <script src="./buttons.js"></script>
-    <script src="./index.js"></script>
-
+      <!-- Electron Javascript -->
+      <script src="./lib/js/buttons.js"></script>
+      <script src="./index.js"></script>
   </body>
+
+
 </html>
