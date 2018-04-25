@@ -1,5 +1,4 @@
-// Electron Remote Constants
-const {remote} = require('electron')
+const remote = require('electron').remote
 
 /** WINDOW BUTTONS >>
 ======================= */
