@@ -1,36 +1,32 @@
 {
   "name": "bigbrother",
-  "version": "2.0.0",
-  "description": "Data collection tool about people (Electron Version)",
+  "version": "1.0.0",
+  "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "electron .",
+    "start": "electron .",
+    "build": "electron-packager .",
+    "compile": "electron-packager ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cosasdepuma/bigbrother.git"
   },
-  "keywords": [
-    "big",
-    "brother",
-    "person",
-    "information",
-    "gathering",
-    "info",
-    "people",
-    "interest"
-  ],
-  "author": "CosasDePuma <kikefontanlorenzo@gmail.com>",
+  "author": "CosasDePuma",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cosasdepuma/bigbrother/issues"
   },
   "homepage": "https://github.com/cosasdepuma/bigbrother#readme",
   "dependencies": {
-    "electron": "^1.6.11",
-    "mongojs": "^2.4.0",
-    "twit": "^2.2.9"
+    "cheerio": "^1.0.0-rc.2",
+    "ddg-scraper": "^1.0.2",
+    "nightmare": "^3.0.1",
+    "request-promise": "^4.2.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-packager": "^12.0.1"
+  }
 }
