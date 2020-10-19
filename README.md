@@ -1,6 +1,7 @@
 <img src="https://cdn.rawgit.com/CosasDePuma/BigBrother/cd329955/public/icons/bigbrother.svg" height="200" align="right">
 
 # BIG BROTHER
+## :warning: ABANDONED :warning: ABANDONED :warning: ABANDONED :warning:
 
 [![NodeJS Version](https://img.shields.io/badge/nodejs-8.1.4-yellowgreen.svg?style=flat)](https://nodejs.org/es/download/package-manager/)
 [![CSS](https://img.shields.io/badge/stylesheet-photonkit-abb2bf.svg?style=flat)](http://photonkit.com)
